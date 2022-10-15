@@ -4,4 +4,3 @@ from .models import Lyric, Song, Artiste
 admin.site.register(Artiste)
 admin.site.register(Song)
 admin.site.register(Lyric)
-# Register your models here.

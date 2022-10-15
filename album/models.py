@@ -10,10 +10,10 @@ class Artiste(models.Model):
     song = models.ForeignKey(
         'Song', null=True, blank=True, on_delete=models.SET_NULL)
     lyric = models.ForeignKey(
-        'Lyric', related_name='leads', null=True, blank=True, on_delete=models.SET_NULL)
+        'Lyric', related_name='lead', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f'{self.first_name}{self.last_name}'
+        return f'{self.first_name} {self.last_name}'
 
 
 class Song(models.Model):

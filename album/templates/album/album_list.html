@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Album</title>
+	<style>
+		.album{
+			background-color: #f6f6f6;
+			padding: 10px, 6px, 10px, 6px;
+			margin-top: 10px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>This is all our artist portfolio</h1> 
+	{% for artist_info in album %} 
+		<div class="album">
+			<a href=" /album/{{ artiste.pk }}/">{{artist_info.first_name }} {{artist_info.last_name }}</a>. Age: {{artist_info.age}}	
+		</div>
+	{% endfor %}
+
+</body>
+</html>
