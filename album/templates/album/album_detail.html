@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Album</title>
-	<style>
-		.album{
-			background-color: #f6f6f6;
-			padding: 10px, 6px, 10px, 6px;
-			margin-top: 10px;
-			width: 100%;
-		}
-	</style>
-</head>
-<body>
-    <a href="/album">Go back to Artiste Menu</a>
+{% extends 'album/base.html'%}
+
+{% block content %}
+<main>
+	<div class="container-fluid ">
+	<section class="my-3"  style="background-color:#eee;">
+    <a href="{% url 'albums:album-list' %}">Go back to Artiste Menu</a>
 	<hr/>
-	<h1>This is the details of {{ artiste.first_name }} {{ artiste.last_name }} </h1> 
-    <p>This artist age is {{ artiste.age }} and his song is {{ artiste.song }}</p>
-</body>
-</html>
+	<h1>This is the details of {{ album.first_name }} {{ album.last_name }} </h1> 
+    <p>This artist age is {{ album.age }} and his song is {{ artiste.song }}</p>
+	<p>The song and lyrics by this artiste are: 
+		<ul>
+			<li>{{ album.song }} and </li>
+			<li>{{ album.lyric }}</li>
+		</ul>
+	</p>
+	<a href="{% url 'album:album-update' album.pk %}">Update</a>
+	<a href="{% url 'album:album-delete' album.pk %}">Delete</a>
+</div>
+</section>
+</main>
+{% endblock content %}
+

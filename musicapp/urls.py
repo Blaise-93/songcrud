@@ -3,7 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("album/", include('album.urls', namespace='album')),
+    path("albums/", include('album.urls', namespace='albums'))
     #path('', home_page)
 
 ]
