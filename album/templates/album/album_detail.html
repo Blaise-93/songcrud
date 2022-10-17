@@ -3,7 +3,7 @@
 {% block content %}
 <main>
 	<div class="container-fluid ">
-	<section class="my-3"  style="background-color:#eee;">
+	<section class="my-3 px-3"  style="background-color:#eee;">
     <a href="{% url 'albums:album-list' %}">Go back to Artiste Menu</a>
 	<hr/>
 	<h1>This is the details of {{ album.first_name }} {{ album.last_name }} </h1> 
@@ -14,8 +14,8 @@
 			<li>{{ album.lyric }}</li>
 		</ul>
 	</p>
-	<a href="{% url 'album:album-update' album.pk %}">Update</a>
-	<a href="{% url 'album:album-delete' album.pk %}">Delete</a>
+	<a href="/albums/{{album.pk}}/update">Update</a>
+	<a href="/albums/{{album.pk}}/delete">Delete</a>
 </div>
 </section>
 </main>

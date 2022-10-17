@@ -5,7 +5,7 @@ from .views import (album_list,
                     navigation
                     )
 
-app_name = 'albums'
+app_name = 'album'
 urlpatterns = [
     path('', album_list, name='album-list'),
     path('', navigation.as_view(), name='navigation'),

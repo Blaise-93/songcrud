@@ -3,13 +3,13 @@
 {% block content %}
 <main>
 	<div class="container-fluid ">
-		<section class="my-3"  style="background-color:#eee;">
+		<section class="my-3 px-3"  style="background-color:#eee;">
 			<a href="{% url 'albums:album-create' %}">Create a new album</a>
 			<hr>
-			<h1>This is all our artist portfolio</h1> 
+			<h1>This is all our artist portfolio</h1>  
 			{% for artist_info in album %} 
 				<div class="album"> 
-					<a href="{% url 'albums:album-create' album.pk %}">{{artist_info.first_name }} {{artist_info.last_name }}</a>. Age: {{artist_info.age}}	
+					<a href="/albums/{{ artist_info.pk }}/">{{artist_info.first_name }} {{artist_info.last_name }}</a>. Age: {{artist_info.age}}	
 				</div>
 				{% endfor %}
 		</section>

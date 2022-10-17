@@ -9,7 +9,7 @@ from .models import Song, Artiste, Lyric
 
 
 class navigation(View):
-    template_name = 'album/navigation.  html'
+    template_name = 'album/navigation.html'
 
 
 def album_list(request):
@@ -21,8 +21,8 @@ def album_list(request):
 
 
 def album_detail(request, pk):
-
     album = Artiste.objects.get(id=pk)
+    print(album)
     context = {
         "album": album
     }
@@ -37,14 +37,13 @@ def album_create(request):
         # we can check if form is valid
         if form.is_valid():
             form.save()
-            return redirect('/album')  # redirect us back to our homepage
+            return redirect('/albums')  # redirect us back to our homepage
     context = {
         'form': form
     }
-    messages.info(request, "You have successfully created your Album choice.")
-    return render(request, 'album/album_create.html', context)
-
-# Update a lead using existing form
+    messages.info(
+        request, "Welcome, kindly create your artiste choice in the field provided. Also select your songs/lyrics.")
+    return render(request, 'album/album_update.html', context)
 
 
 def album_update(request, pk):
@@ -54,13 +53,13 @@ def album_update(request, pk):
         form = AlbumModelForm(request.POST, instance=album)
         if form.is_valid():
             form.save()
-            return redirect('/album')
+            return redirect('/albums')
     context = {
         'form': form,
         'artiste': album
     }
     messages.info(
-        request, "You have successfully updated your Artiste choice.Thank you!")
+        request, "Hi there, do you want to updated the artiste!")
     return render(request, 'album/album_update.html', context)
 
 
@@ -70,59 +69,3 @@ def album_delete(request, pk):
     messages.info(
         request, "You have successfully deleted your Artiste.Thank you!")
     return render(request, 'album/album_delete.html')
-
-
-"""
-def album_update(request, pk):
-    album = Artiste.objects.get(id=pk)
-    form = AlbumForm()
-    if request.method == 'POST':
-        form = AlbumForm(request.POST)
-       # we can check if form is valid
-        if form.is_valid():
-            print('The form is valid')
-            print(form.cleaned_data)
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            age = form.cleaned_data['age']
-            artiste.first_name = first_name
-            artiste.last_name = last_name
-            artiste.age = age
-            artiste.first_name = first_name
-            artiste.save()  # commit the changes to database to update
-
-            return redirect('/album')  # redirect us back to our homepage
-    context = {
-        'form': form,
-        'album': album
-    }
-    return render(request, 'album/album_update.html', context)
-"""
-
-
-# def album_create(request):
-#  # if request.method == 'POST':
-#        form = AlbumForm(request.POST)
-#       # we can check if form is valid
-#       if form.is_valid():
-#           print('The form is valid')
-#           print(form.cleaned_data)
-#           first_name = form.cleaned_data['first_name']
-#           last_name = form.cleaned_data['last_name']
-#           age = form.cleaned_data['age']
-#           song = Song.objects.first()  # created a first instance of song variable
-#           lyric = Lyric.objects.first()
-#          Artiste.objects.create(
-#               first_name=first_name,
-#               last_name=last_name,
-#               age=age,
-#               song=song,
-#               lyric=lyric
-#         )
-#          print('The album has been created.')
-#          return redirect('/album')  # redirect us back to our homepage
-#  context = {
-#       'form': form
-#  }
-
-#  return render(request, 'album/album_create.html', context)
