@@ -2,7 +2,7 @@ This project is a django project given to me by Zuri team (my mentors).
 Here we created songcrud project which houses musicapp project via using pip and other django dependencies.
 It was later deployed so that we can add some usecase in our app (musicapp) in the feature.
 
-stage2 of the Assignment: Below are activities carried out in L + CRUD musicapp applications:
+stage2 of the Assignment: Below are activities carried out in L + CRUD musicapp songcrude album applications:
 
 We created our views.py functions of our basic CRUD + L (create, retrieve, update, delete, and list) models, and we created our app urls.py to handle its request when rendered on frontend.
 
