@@ -15,5 +15,5 @@ class AlbumModelForm(forms.ModelForm):
         model = Artiste
         fields = (
             'first_name', 'last_name', 'age',
-            'song', 'lyric'
+            'song'
         )
