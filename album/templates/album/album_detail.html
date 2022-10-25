@@ -8,10 +8,9 @@
 	<hr/>
 	<h1>This is the details of {{ album.first_name }} {{ album.last_name }} </h1> 
     <p>This artist age is {{ album.age }} and his song is {{ artiste.song }}</p>
-	<p>The song and lyrics by this artiste are: 
+	<p>The song by this artiste is: 
 		<ul>
-			<li>{{ album.song }} and </li>
-			<li>{{ album.lyric }}</li>
+			<li>{{ album.song }}</li>
 		</ul>
 	</p>
 	<a href="/albums/{{album.pk}}/update">Update</a>
